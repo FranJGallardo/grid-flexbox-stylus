@@ -1,0 +1,165 @@
+/*
+*	Retícula en stylus para FlexBox
+*/
+
+// Variables para configurar el grid
+// Las dimensiones admiten %
+
+$columns = 12
+$gutterwidth = 1%
+$container = 98%
+$totalContainer = 100%
+
+.container
+	margin 0 auto
+	padding 0 2%
+	max-width $container
+
+//Clases para el Padre (ROW)
+
+.row
+	box-sizing border-box
+	display flex
+	flex 0 1 auto
+	flex-direction row
+	flex-wrap wrap
+	&.reverse
+		flex-direction row-reverse
+.column
+	box-sizing border-box
+	display flex
+	flex 0 1 auto
+	flex-direction column
+	flex-wrap wrap
+	&.reverse
+		flex-direction column-reverse	
+
+.nowrap
+	flex-wrap nowrap
+	
+//Justificación a la izquierda de los elementos
+.start
+	justify-content flex-start
+	text-align start
+
+//Justificación centrada
+.center
+	justify-content center
+	text-align center
+	
+//Justificación derecha
+.end
+	justify-content flex-end
+	text-align end	
+
+//Alinear los children del padre al margen superior
+.top
+	align-items flex-start
+
+//Alienado centrado vertical
+.middle
+	align-items center
+
+//Alineado con la parte inferior del container
+.bottom
+	align-items flex-end
+	
+//Distribuir el espacio entre los elementos del Row
+.around
+	justify-content space-around
+
+//Distribuir elementos en el espacio disponible
+.between
+	justify-content space-between
+	
+//**********Clases para los hijos
+
+.col-1
+.col-2
+.col-3
+.col-4
+.col-5
+.col-6
+.col-7
+.col-8
+.col-9
+.col-10
+.col-11
+.col-12
+	box-sizing border-box
+	flex 0 0 auto
+	padding 0 0 $gutterwidth
+.col-0
+	flex-grow 1
+	flex-basis 0
+	max-width 100%
+
+//Función help
+f_size(a,b,i)
+	$size = (a / b) * i 
+//Mixins
+m_calculateSize($size)
+	flex-basis $size
+	max-width $size	
+
+m_calculateMargin($size)
+	margin-left $size
+		
+.col-1
+	m_calculateSize(f_size($container,$columns,1))
+.col-2
+	m_calculateSize(f_size($container,$columns,2))
+.col-3
+	m_calculateSize(f_size($container,$columns,3))
+.col-4
+	m_calculateSize(f_size($container,$columns,4))	
+.col-5
+	m_calculateSize(f_size($container,$columns,5))
+.col-6
+	m_calculateSize(f_size($container,$columns,6))
+.col-7
+	m_calculateSize(f_size($container,$columns,7))
+.col-8
+	m_calculateSize(f_size($container,$columns,8))	
+.col-9
+	m_calculateSize(f_size($container,$columns,9))	
+.col-10
+	m_calculateSize(f_size($container,$columns,10))
+.col-11
+	m_calculateSize(f_size($container,$columns,11))
+.col-12
+	m_calculateSize(f_size($container,$columns,12))
+
+
+//Offset a modo de tabulador, por si queremos espaciar un determinado número de columnas
+.col-offset-1
+	m_calculateMargin(f_size($container,$columns,1))
+.col-offset-2
+	m_calculateMargin(f_size($container,$columns,2))
+.col-offset-3
+	m_calculateMargin(f_size($container,$columns,3))
+.col-offset-4
+	m_calculateMargin(f_size($container,$columns,4))	
+.col-offset-5
+	m_calculateMargin(f_size($container,$columns,5))
+.col-offset-6
+	m_calculateMargin(f_size($container,$columns,6))
+.col-offset-7
+	m_calculateMargin(f_size($container,$columns,7))
+.col-offset-8
+	m_calculateMargin(f_size($container,$columns,8))	
+.col-offset-9
+	m_calculateMargin(f_size($container,$columns,9))	
+.col-offset-10
+	m_calculateMargin(f_size($container,$columns,10))
+.col-offset-11
+	m_calculateMargin(f_size($container,$columns,11))
+.col-offset-12
+	m_calculateMargin(f_size($container,$columns,12))
+	
+//Más clases del padre
+
+
+	
+
+
